@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yan S – Private Tour & Transport Bali</title>
+<meta name="description" content="Yan S Private Tour & Transport – Bali's premium private driver service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bur:  #7A0026;
+  --bur2: #56001A;
+  --cream:#EAD9B8;
+  --c2:   #F5EFDF;
+  --sand: #B09880;
+  --green:#2E4B34;
+  --esp:  #3B2A20;
+  --dark: #18080E;
+  --white:#FAF6EE;
+  --muted:#7A5564;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; background: var(--white); color: var(--esp); overflow-x: hidden; }
+
+/* ── HEADER ── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem,4vw,3rem); height: 108px;
+  background: rgba(24,8,14,0.88); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(176,152,128,0.1);
+}
+.logo img { height: 100px; display: block; mix-blend-mode: screen; }
+nav { display: flex; align-items: center; gap: 2rem; }
+nav a { color: var(--cream); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 500; opacity: 0.65; transition: opacity 0.2s; }
+nav a:hover { opacity: 1; }
+@media (max-width: 820px) { nav { display: none; } }
+.lang-switcher { display: flex; gap: 3px; }
+.lb { background: none; border: 1px solid rgba(176,152,128,0.3); color: rgba(234,217,184,0.65); font-size: 0.62rem; letter-spacing: 0.1em; padding: 0.28rem 0.44rem; cursor: pointer; border-radius: 2px; font-family: 'Montserrat', sans-serif; font-weight: 600; transition: all 0.2s; }
+.lb:hover, .lb.active { background: var(--sand); color: var(--dark); border-color: var(--sand); }
+
+/* ── HERO ── */
+.hero {
+  height: 100svh; min-height: 640px; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding: 0 clamp(2rem,7vw,6rem) clamp(3.5rem,7vw,6rem);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1800&q=85') center 35% / cover no-repeat;
+  transform: scale(1.05); transition: transform 10s ease-out;
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(170deg, rgba(18,4,10,0.08) 0%, rgba(18,4,10,0.72) 100%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 680px; }
+.hero-kicker {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--sand); font-weight: 500; margin-bottom: 1.25rem;
+}
+.hero-kicker::before { content: ''; width: 32px; height: 1px; background: var(--sand); }
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.6rem,7vw,5.6rem); font-weight: 300;
+  color: var(--c2); line-height: 1.06; letter-spacing: 0.06em;
+  margin-bottom: 1rem; text-shadow: 0 4px 32px rgba(0,0,0,0.35);
+}
+.hero-sub {
+  font-family: 'Cinzel', serif; font-size: clamp(0.82rem,1.6vw,1.05rem);
+  font-weight: 300; color: rgba(234,217,184,0.7); letter-spacing: 0.14em; margin-bottom: 1.5rem;
+}
+.hero-p { font-size: 0.84rem; font-weight: 300; line-height: 1.9; color: rgba(234,217,184,0.55); max-width: 480px; margin-bottom: 2.5rem; }
+.wa-btn {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  background: #25D366; color: #fff; padding: 0.9rem 2.25rem;
+  font-size: 0.74rem; font-weight: 600; text-decoration: none;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3); transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+.wa-btn svg { width: 17px; height: 17px; }
+
+
+
+/* ── VALUES BAR ── */
+.values {
+  background: var(--dark); display: flex; flex-wrap: wrap;
+  justify-content: center; align-items: center;
+  border-bottom: 1px solid rgba(176,152,128,0.1);
+}
+.val {
+  padding: 1rem 1.5rem;
+  font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.26em;
+  color: rgba(234,217,184,0.55); text-transform: uppercase;
+}
+.val + .val { border-left: 1px solid rgba(176,152,128,0.12); }
+@media (max-width: 580px) { .val { padding: 0.8rem 1rem; font-size: 0.52rem; } }
+
+/* ── INTRO BAND ── */
+.intro-band { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+@media (max-width: 720px) { .intro-band { grid-template-columns: 1fr; } }
+.intro-band-img { overflow: hidden; }
+.intro-band-img img { width: 100%; height: 100%; min-height: 300px; object-fit: cover; display: block; }
+.intro-band-text {
+  background: var(--bur);
+  padding: clamp(3rem,7vw,6rem) clamp(2rem,5vw,4rem);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.intro-band-text .s-label { color: rgba(234,217,184,0.6); }
+.intro-band-text .s-title { color: var(--cream); }
+.intro-band-text .s-rule { background: rgba(234,217,184,0.35); }
+.intro-band-text .s-body { font-size: 0.85rem; line-height: 1.85; color: rgba(234,217,184,0.65); font-weight: 300; }
+.intro-tags { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+.intro-tag {
+  font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.22em;
+  color: rgba(234,217,184,0.5); text-transform: uppercase;
+  padding-bottom: 0.25rem; border-bottom: 1px solid rgba(234,217,184,0.2);
+}
+
+/* ── SHARED ── */
+.s-label { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600; color: var(--sand); margin-bottom: 0.6rem; display: block; }
+.s-title { font-family: 'Cinzel', serif; font-size: clamp(1.7rem,3.8vw,2.9rem); font-weight: 300; line-height: 1.15; letter-spacing: 0.05em; }
+.s-rule { width: 36px; height: 1px; background: var(--sand); margin: 1.1rem 0; }
+
+/* ── SERVICES ── */
+.services { background: var(--c2); padding: clamp(4rem,7vw,6rem) clamp(1.5rem,5vw,4rem); }
+.services-head { max-width: 500px; margin: 0 auto 3.5rem; text-align: center; }
+.services-head .s-rule { margin: 1.1rem auto; }
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%,300px),1fr));
+  gap: 1px; max-width: 1160px; margin: 0 auto;
+  background: var(--cream); border: 1px solid var(--cream);
+}
+.svc-card { background: var(--white); display: flex; flex-direction: column; transition: box-shadow 0.3s, transform 0.3s; }
+.svc-card:hover { transform: translateY(-4px); z-index: 2; box-shadow: 0 12px 40px rgba(58,26,34,0.12); }
+.svc-img { height: 200px; overflow: hidden; }
+.svc-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+.svc-card:hover .svc-img img { transform: scale(1.06); }
+.svc-body { padding: 1.5rem 1.75rem 2rem; flex: 1; }
+.svc-num { font-size: 0.58rem; letter-spacing: 0.25em; color: var(--sand); margin-bottom: 0.5rem; font-weight: 600; }
+.svc-body h3 { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 500; color: var(--bur); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.svc-body p { font-size: 0.8rem; line-height: 1.75; color: var(--muted); font-weight: 300; }
+
+/* ── COMFORT ── */
+.comfort { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+@media (max-width: 720px) { .comfort { grid-template-columns: 1fr; } }
+.comfort-img { overflow: hidden; min-height: 320px; }
+.comfort-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.comfort-text { background: var(--dark); padding: clamp(3rem,7vw,5.5rem) clamp(2rem,5vw,4rem); display: flex; flex-direction: column; justify-content: center; }
+.comfort-text .s-label { color: rgba(234,217,184,0.5); }
+.comfort-text .s-title { color: var(--cream); }
+.comfort-text .s-rule { background: var(--sand); }
+.comfort-intro { font-size: 0.82rem; line-height: 1.9; color: rgba(234,217,184,0.55); margin-bottom: 2.5rem; font-weight: 300; }
+.comfort-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.comfort-item { display: flex; gap: 1rem; align-items: flex-start; }
+.c-dot { width: 6px; height: 6px; background: var(--sand); border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem; }
+.comfort-item h4 { font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 500; color: var(--cream); margin-bottom: 0.2rem; letter-spacing: 0.06em; }
+.comfort-item p { font-size: 0.75rem; color: rgba(234,217,184,0.45); line-height: 1.65; }
+
+/* ── ABOUT ── */
+.about { background: var(--white); padding: clamp(4rem,7vw,6rem) clamp(1.5rem,5vw,4rem); }
+.about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+@media (max-width: 820px) { .about-inner { grid-template-columns: 1fr; gap: 3rem; } }
+.about-quote { font-family: 'Cinzel', serif; font-size: clamp(1.05rem,2vw,1.45rem); font-weight: 300; font-style: italic; color: var(--bur); line-height: 1.65; padding-left: 1.5rem; border-left: 2px solid var(--sand); margin-bottom: 2.5rem; }
+.about-vals { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--cream); }
+.about-val { background: var(--white); padding: 1.25rem 1.25rem 1.4rem; border-bottom: 2px solid var(--sand); }
+.about-val h4 { font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 600; color: var(--bur); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.about-val p { font-size: 0.72rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.about-img { overflow: hidden; height: 520px; }
+.about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 820px) { .about-img { height: 360px; } }
+
+/* ── DESTINATIONS ── */
+.dest { background: var(--bur2); padding: clamp(4rem,7vw,6rem) clamp(1.5rem,5vw,4rem); }
+.dest-head { text-align: center; margin-bottom: 3rem; }
+.dest-head .s-title { color: var(--cream); }
+.dest-head .s-rule { margin: 1.1rem auto; }
+.dest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; max-width: 1100px; margin: 0 auto; }
+@media (max-width: 640px) { .dest-grid { grid-template-columns: 1fr 1fr; } }
+.dest-card { position: relative; overflow: hidden; height: 260px; cursor: pointer; }
+@media (max-width: 640px) { .dest-card { height: 190px; } }
+.dest-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.dest-card:hover img { transform: scale(1.06); }
+.dest-card-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.5rem 1.25rem 0.9rem;
+  background: linear-gradient(to top, rgba(18,4,10,0.78) 0%, transparent 100%);
+  font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.18em;
+  color: var(--cream); text-transform: uppercase; font-weight: 400;
+}
+
+/* ── TESTIMONIALS ── */
+.testi { background: var(--esp); padding: clamp(4rem,7vw,6rem) clamp(1.5rem,5vw,4rem); }
+.testi-head { text-align: center; margin-bottom: 3rem; }
+.testi-head .s-title { color: var(--cream); }
+.testi-head .s-rule { margin: 1.1rem auto; }
+.t-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%,270px),1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+.t-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(176,152,128,0.14); padding: 1.75rem; }
+.t-stars { color: var(--sand); font-size: 0.72rem; letter-spacing: 0.12em; margin-bottom: 1rem; }
+.t-text { font-family: 'Cinzel', serif; font-size: 0.88rem; font-style: italic; font-weight: 300; color: rgba(234,217,184,0.78); line-height: 1.8; margin-bottom: 1.4rem; }
+.t-author { display: flex; align-items: center; gap: 0.7rem; }
+.t-av { width: 32px; height: 32px; border-radius: 50%; background: var(--bur); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--cream); flex-shrink: 0; }
+.t-name { font-size: 0.75rem; color: var(--cream); font-weight: 500; }
+.t-loc { font-size: 0.64rem; color: rgba(234,217,184,0.3); }
+
+/* ── CTA ── */
+.cta { background: var(--bur); text-align: center; padding: clamp(5rem,9vw,8rem) clamp(1.5rem,5vw,4rem); position: relative; overflow: hidden; }
+.cta::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?w=1400&q=50') center / cover no-repeat; opacity: 0.1; }
+.cta-inner { position: relative; z-index: 1; max-width: 500px; margin: 0 auto; }
+.cta .s-label { color: rgba(234,217,184,0.55); text-align: center; }
+.cta .s-title { color: var(--cream); }
+.cta .s-rule { margin: 1.1rem auto; }
+.cta-p { font-size: 0.82rem; color: rgba(234,217,184,0.55); margin-bottom: 2.5rem; line-height: 1.9; font-weight: 300; }
+.cta-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: #25D366; color: #fff; padding: 1rem 2.75rem; font-size: 0.73rem; font-weight: 600; text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s; }
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,0.35); }
+.cta-btn svg { width: 19px; height: 19px; }
+.cta-phone { display: block; margin-top: 1.25rem; color: rgba(234,217,184,0.45); font-size: 0.75rem; letter-spacing: 0.14em; }
+
+/* ── FOOTER ── */
+footer { background: var(--dark); padding: 2.25rem clamp(1.5rem,5vw,4rem); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; border-top: 1px solid rgba(176,152,128,0.1); }
+.footer-logo img { height: 36px; opacity: 0.7; }
+.footer-copy { font-size: 0.64rem; color: rgba(234,217,184,0.22); letter-spacing: 0.08em; }
+
+/* ── STICKY WA ── */
+.swa { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 300; width: 54px; height: 54px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; animation: swa-p 3s infinite; }
+.swa:hover { transform: scale(1.08); }
+.swa svg { width: 25px; height: 25px; fill: #fff; }
+@keyframes swa-p { 0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.45);} 50%{box-shadow:0 4px 28px rgba(37,211,102,.75),0 0 0 8px rgba(37,211,102,.08);} }
+
+/* ── MOBILE HAMBURGER ── */
+.ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.ham span { display: block; width: 22px; height: 1.5px; background: var(--cream); transition: all 0.3s; }
+@media (max-width: 820px) { .ham { display: flex; } }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  display: none; position: fixed; inset: 0; z-index: 190;
+  background: rgba(24,8,14,0.97); backdrop-filter: blur(20px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  color: var(--cream); font-family: 'Cinzel', serif;
+  font-size: clamp(1.2rem,5vw,1.6rem); letter-spacing: 0.18em;
+  text-transform: uppercase; text-decoration: none; opacity: 0.8;
+}
+.mobile-nav a:hover { opacity: 1; }
+.mobile-nav .lang-row { display: flex; gap: 8px; margin-top: 1rem; }
+.mobile-nav .lb { font-size: 0.75rem; padding: 0.4rem 0.65rem; }
+.mobile-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: none; border: none; color: var(--cream); font-size: 1.8rem;
+  cursor: pointer; line-height: 1; opacity: 0.6;
+}
+.mobile-close:hover { opacity: 1; }
+
+/* ── HERO mobile ── */
+@media (max-width: 600px) {
+  .hero { padding: 0 1.5rem 3rem; align-items: center; justify-content: flex-end; text-align: center; }
+  .hero-kicker { justify-content: center; }
+  .hero-kicker::before { display: none; }
+  .hero-p { display: none; }
+  .hero h1 { font-size: clamp(2rem,10vw,3rem); }
+}
+
+/* ── VALUES mobile ── */
+@media (max-width: 480px) {
+  .values { display: grid; grid-template-columns: 1fr 1fr; }
+  .val + .val { border-left: none; border-top: 1px solid rgba(176,152,128,0.12); }
+  .val:nth-child(2n) { border-left: 1px solid rgba(176,152,128,0.12); }
+}
+
+/* ── INTRO BAND mobile ── */
+@media (max-width: 720px) {
+  .intro-band { grid-template-columns: 1fr; }
+  .intro-band-img { height: 260px; }
+  .intro-band-img img { height: 260px; }
+}
+
+/* ── SERVICES mobile ── */
+@media (max-width: 500px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-img { height: 180px; }
+}
+
+/* ── COMFORT mobile ── */
+@media (max-width: 720px) {
+  .comfort { grid-template-columns: 1fr; }
+  .comfort-img { height: 280px; }
+}
+
+/* ── ABOUT mobile ── */
+@media (max-width: 820px) {
+  .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-img { height: 280px; }
+}
+
+/* ── DESTINATIONS mobile ── */
+@media (max-width: 500px) {
+  .dest-grid { grid-template-columns: 1fr 1fr; }
+  .dest-card { height: 160px; }
+  .dest-card-label { font-size: 0.62rem; letter-spacing: 0.12em; padding: 1rem 0.75rem 0.6rem; }
+}
+
+/* ── CTA mobile ── */
+@media (max-width: 500px) {
+  .cta-btn { padding: 0.9rem 1.5rem; font-size: 0.68rem; width: 100%; justify-content: center; }
+}
+
+/* ── FOOTER ── */
+footer { flex-direction: column; text-align: center; gap: 0.75rem; padding: 2rem 1.5rem; }
+@media (min-width: 600px) { footer { flex-direction: row; } }
+.footer-links { display: flex; gap: 1.25rem; align-items: center; }
+.footer-credit-link {
+  font-size: 0.64rem; color: rgba(234,217,184,0.35); letter-spacing: 0.1em;
+  text-decoration: none; border-bottom: 1px solid rgba(234,217,184,0.15);
+  transition: color 0.2s, border-color 0.2s; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Montserrat', sans-serif; padding: 0;
+}
+.footer-credit-link:hover { color: var(--sand); border-color: var(--sand); }
+
+/* ── CREDITS MODAL ── */
+.credits-modal {
+  display: none; position: fixed; inset: 0; z-index: 400;
+  background: rgba(18,4,10,0.92); backdrop-filter: blur(16px);
+  align-items: center; justify-content: center; padding: 2rem;
+}
+.credits-modal.open { display: flex; }
+.credits-box {
+  background: var(--dark); border: 1px solid rgba(176,152,128,0.2);
+  max-width: 540px; width: 100%; padding: 2.5rem;
+  position: relative; max-height: 80vh; overflow-y: auto;
+}
+.credits-box h2 {
+  font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 400;
+  color: var(--cream); letter-spacing: 0.18em; text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.credits-rule { width: 36px; height: 1px; background: var(--sand); margin-bottom: 1.75rem; }
+.credits-section { margin-bottom: 1.5rem; }
+.credits-section h3 {
+  font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--sand); font-weight: 600; margin-bottom: 0.75rem;
+}
+.credits-section p, .credits-section a {
+  font-size: 0.76rem; color: rgba(234,217,184,0.55); line-height: 1.8;
+  font-weight: 300; display: block; text-decoration: none;
+}
+.credits-section a:hover { color: var(--sand); }
+.credits-close {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  background: none; border: none; color: rgba(234,217,184,0.4);
+  font-size: 1.4rem; cursor: pointer; line-height: 1;
+}
+.credits-close:hover { color: var(--cream); }
+
+/* ── REVEAL ── */
+.rv { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+.rv.on { opacity: 1; transform: none; }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()">✕</button>
+  <a href="#services" data-i18n="nav_svc" onclick="closeMobileNav()">Services</a>
+  <a href="#about"    data-i18n="nav_abt" onclick="closeMobileNav()">About</a>
+  <a href="#gallery"  data-i18n="nav_gal" onclick="closeMobileNav()">Destinations</a>
+  <a href="#contact"  data-i18n="nav_cnt" onclick="closeMobileNav()">Contact</a>
+  <div class="lang-row">
+    <button class="lb active" onclick="setLang('en');closeMobileNav()">EN</button>
+    <button class="lb"        onclick="setLang('id');closeMobileNav()">ID</button>
+    <button class="lb"        onclick="setLang('ru');closeMobileNav()">RU</button>
+    <button class="lb"        onclick="setLang('zh');closeMobileNav()">中</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header style="line-height:1">
+  <div class="logo"><img src="uploads/Yan S Taxi-02-59691ef3.png" alt="Yan S Private Tour & Transport Bali"></div>
+  <nav>
+    <a href="#services" data-i18n="nav_svc">Services</a>
+    <a href="#about"    data-i18n="nav_abt">About</a>
+    <a href="#gallery"  data-i18n="nav_gal">Destinations</a>
+    <a href="#contact"  data-i18n="nav_cnt">Contact</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:0.75rem">
+    <div class="lang-switcher">
+      <button class="lb active" onclick="setLang('en')">EN</button>
+      <button class="lb"        onclick="setLang('id')">ID</button>
+      <button class="lb"        onclick="setLang('ru')">RU</button>
+      <button class="lb"        onclick="setLang('zh')">中</button>
+    </div>
+    <button class="ham" onclick="openMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-content">
+    <div class="hero-kicker" data-i18n="hero_kicker">Bali Private Driver Service</div>
+    <h1 data-i18n="hero_h1">EXPLORE BALI<br>WITH ELEGANCE</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Your Personal Guide Beyond the Ordinary</p>
+    <p class="hero-p" data-i18n="hero_p">Free yourself from constraints and enjoy every moment. Book a private driver and explore Bali entirely on your own terms — in cool, safe comfort.</p>
+    <a href="https://wa.me/6281238923299" class="wa-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6 6 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i18n="hero_cta">Book on WhatsApp</span>
+    </a>
+  </div>
+</section>
+
+
+
+<!-- VALUES BAR -->
+<div class="values">
+  <div class="val" data-i18n="v2">Authenticity</div>
+  <div class="val" data-i18n="v3">Serenity</div>
+  <div class="val" data-i18n="v4">Hospitality</div>
+  <div class="val" data-i18n="v5">Excellence</div>
+</div>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <div class="intro-band-img">
+    <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=900&q=85" alt="Tanah Lot temple" loading="lazy">
+  </div>
+  <div class="intro-band-text">
+    <p class="s-label rv" data-i18n="intro_label">Your Journey</p>
+    <h2 class="s-title rv" data-i18n="intro_title">YOUR JOURNEY,<br>OUR PRIVILEGE</h2>
+    <div class="s-rule rv"></div>
+    <p class="s-body rv" data-i18n="intro_body">Navigating traffic in Ubud or finding your way to hidden beaches in Uluwatu can be overwhelming. Why waste your holiday time? With Yan S, you have the freedom to explore Bali at your own pace — private, comfortable, unforgettable.</p>
+    <div class="intro-tags rv d1">
+      <span class="intro-tag" data-i18n="it1">Private</span>
+      <span class="intro-tag" data-i18n="it2">Comfort</span>
+      <span class="intro-tag" data-i18n="it3">Culture</span>
+      <span class="intro-tag" data-i18n="it4">Safety</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-head rv">
+    <p class="s-label" data-i18n="svc_label">What We Offer</p>
+    <h2 class="s-title" data-i18n="svc_title">OUR SERVICES</h2>
+    <div class="s-rule"></div>
+  </div>
+  <div class="svc-grid">
+
+    <div class="svc-card rv">
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80" alt="Airport" loading="lazy"></div>
+      <div class="svc-body">
+        <div class="svc-num">01</div>
+        <h3 data-i18n="s1h">Airport Pickup</h3>
+        <p data-i18n="s1p">Avoid the taxi crowds on arrival. Our driver waits with a personal name sign to take you directly to your villa or hotel.</p>
+      </div>
+    </div>
+
+    <div class="svc-card rv d1">
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=700&q=80" alt="Ubud" loading="lazy"></div>
+      <div class="svc-body">
+        <div class="svc-num">02</div>
+        <h3 data-i18n="s2h">Daily Tour "À la Carte"</h3>
+        <p data-i18n="s2p">You choose the route, we do the driving. From Jatiluwih rice terraces to the temples of Amed, enjoy 8–10 hours of stress-free exploration.</p>
+      </div>
+    </div>
+
+    <div class="svc-card rv d2">
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=700&q=80" alt="Canggu" loading="lazy"></div>
+      <div class="svc-body">
+        <div class="svc-num">03</div>
+        <h3 data-i18n="s3h">Inter-City Transfer</h3>
+        <p data-i18n="s3p">Move between Seminyak, Ubud, Canggu or Munduk with your luggage safely in a spacious air-conditioned SUV — Avanza, Innova or Hiace.</p>
+      </div>
+    </div>
+
+    <div class="svc-card rv d1">
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?w=700&q=80" alt="Photography" loading="lazy"></div>
+      <div class="svc-body">
+        <div class="svc-num">04</div>
+        <h3 data-i18n="s4h">Photography Experience</h3>
+        <p data-i18n="s4p">Our driver knows the best spots at Tanah Lot, the Gates of Heaven, Sidemen and Amed — including the ideal hour to avoid crowds.</p>
+      </div>
+    </div>
+
+    <div class="svc-card rv d2">
+      <div class="svc-img"><img src="uploads/pasted-1777287649969-1.png" alt="Kecak dance Uluwatu" loading="lazy"></div>
+      <div class="svc-body">
+        <div class="svc-num">05</div>
+        <h3 data-i18n="s5h">Evening & Dinner Tours</h3>
+        <p data-i18n="s5p">Watch the sunset at Uluwatu and enjoy a local dinner without worrying about the drive back to your accommodation.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMFORT -->
+<div class="comfort" id="comfort">
+  <div class="comfort-img">
+    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&q=85" alt="SUV interior" loading="lazy">
+  </div>
+  <div class="comfort-text">
+    <p class="s-label rv" data-i18n="cmf_label">On Board</p>
+    <h2 class="s-title rv" data-i18n="cmf_title">ISLAND LIFE<br>COMFORT</h2>
+    <div class="s-rule rv"></div>
+    <p class="comfort-intro rv" data-i18n="cmf_intro">Because of the heat and potentially long journeys, we've thought of everything for your comfort on board.</p>
+    <div class="comfort-list">
+      <div class="comfort-item rv"><div class="c-dot"></div><div><h4 data-i18n="cf1">Ice-Cold AC</h4><p data-i18n="cf1t">Always cool and fresh — a welcome escape from Bali's tropical heat.</p></div></div>
+      <div class="comfort-item rv d1"><div class="c-dot"></div><div><h4 data-i18n="cf2">Wi-Fi + Charger</h4><p data-i18n="cf2t">Stay connected with Wi-Fi and chargers for all your devices.</p></div></div>
+      <div class="comfort-item rv d2"><div class="c-dot"></div><div><h4 data-i18n="cf3">Avanza · Innova · Hiace</h4><p data-i18n="cf3t">Spacious family SUV or Van — chosen to match your group size and luggage.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <p class="s-label rv" data-i18n="abt_label">Who We Are</p>
+      <h2 class="s-title rv" data-i18n="abt_title">YOUR JOURNEY,<br>OUR PRIVILEGE</h2>
+      <div class="s-rule rv"></div>
+      <blockquote class="about-quote rv" data-i18n="abt_quote">"More than just a driver — an ambassador of the island of Bali."</blockquote>
+      <div class="about-vals">
+        <div class="about-val rv"><h4 data-i18n="av1">Local Insight</h4><p data-i18n="av1t">Every hidden corner of Bali.</p></div>
+        <div class="about-val rv d1"><h4 data-i18n="av2">Total Safety</h4><p data-i18n="av2t">Experienced driver, well-maintained vehicle.</p></div>
+        <div class="about-val rv d2"><h4 data-i18n="av3">Full Flexibility</h4><p data-i18n="av3t">Plans change? No problem at all.</p></div>
+        <div class="about-val rv d3"><h4 data-i18n="av4">Clear Pricing</h4><p data-i18n="av4t">No hidden fees, ever.</p></div>
+      </div>
+    </div>
+    <div class="about-img rv">
+      <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?w=700&q=85" alt="Sidemen valley" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<div class="dest" id="gallery">
+  <div class="dest-head rv">
+    <p class="s-label" data-i18n="dest_label">Where We Take You</p>
+    <h2 class="s-title" data-i18n="dest_title">BALI'S FINEST DESTINATIONS</h2>
+    <div class="s-rule"></div>
+  </div>
+  <div class="dest-grid">
+    <div class="dest-card rv">
+      <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=700&q=80" alt="Canggu" loading="lazy">
+      <div class="dest-card-label">Tanah Lot</div>
+    </div>
+    <div class="dest-card rv d1">
+      <img src="uploads/pasted-1777288031262-1.png" alt="Bali waterfall" loading="lazy">
+      <div class="dest-card-label">Ubud</div>
+    </div>
+    <div class="dest-card rv d2">
+      <img src="uploads/pasted-1777288372708-0.png" alt="Lempuyang temple" loading="lazy">
+      <div class="dest-card-label" data-i18n="d_agung">Lempuyang</div>
+    </div>
+    <div class="dest-card rv">
+      <img src="uploads/pasted-1777288169634-0.png" alt="Jatiluwih rice terraces" loading="lazy">
+      <div class="dest-card-label">Sidemen</div>
+    </div>
+    <div class="dest-card rv d1">
+      <img src="https://images.unsplash.com/photo-1570789210967-2cac24afeb00?w=700&q=80" alt="Amed" loading="lazy">
+      <div class="dest-card-label">Amed</div>
+    </div>
+    <div class="dest-card rv d2">
+      <img src="https://images.unsplash.com/photo-1573790387438-4da905039392?w=700&q=80" alt="Uluwatu" loading="lazy">
+      <div class="dest-card-label">Uluwatu</div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <img src="uploads/Yan S Taxi-02-59691ef3.png" alt="Yan S" style="height:120px;margin:0 auto 2rem;display:block;">
+    <p class="s-label" data-i18n="cta_label">Reserve Your Journey</p>
+    <h2 class="s-title" data-i18n="cta_title">READY TO EXPLORE BALI?</h2>
+    <div class="s-rule"></div>
+    <p class="cta-p" data-i18n="cta_p">Contact us now for your reservation. We're ready to help you plan the Bali journey of your dreams.</p>
+    <a href="https://wa.me/6281238923299" class="cta-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6 6 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i18n="cta_btn">WhatsApp Reservation</span>
+    </a>
+    <span class="cta-phone">+62 812-3892-3299</span>
+  </div>
+</section>
+
+<!-- CREDITS MODAL -->
+<div class="credits-modal" id="creditsModal">
+  <div class="credits-box">
+    <button class="credits-close" onclick="document.getElementById('creditsModal').classList.remove('open')">✕</button>
+    <h2>Credits</h2>
+    <div class="credits-rule"></div>
+    <div class="credits-section">
+      <h3>Editing & Design</h3>
+      <p>© Chaloupé Studio — All rights reserved</p>
+    </div>
+    <div class="credits-section">
+      <h3>Photography</h3>
+      <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash — unsplash.com</a>
+      <a href="https://unsplash.com/@rucksack_magazine" target="_blank" rel="noopener">Rucksack Magazine on Unsplash</a>
+      <a href="https://unsplash.com/@maxime_bhm" target="_blank" rel="noopener">Maxime Bhm on Unsplash</a>
+      <a href="https://unsplash.com/@hiteshchoudhary" target="_blank" rel="noopener">Hitesh Choudhary on Unsplash</a>
+      <p style="margin-top:0.5rem">Additional photography provided by Yan S Private Tour &amp; Transport</p>
+    </div>
+    <div class="credits-section">
+      <h3>Website</h3>
+      <p>Built for Yan S Private Tour &amp; Transport · Bali, Indonesia</p>
+      <p>© 2025 — All rights reserved</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="uploads/Yan S Taxi-02-59691ef3.png" alt="Yan S"></div>
+  <div class="footer-links">
+    <p class="footer-copy">© 2025 Yan S Private Tour &amp; Transport · Bali</p>
+    <button class="footer-credit-link" onclick="document.getElementById('creditsModal').classList.add('open')">Credits</button>
+  </div>
+</footer>
+
+<!-- STICKY WA -->
+<a href="https://wa.me/6281238923299" class="swa" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6 6 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const T = {
+  en:{
+    nav_svc:'Services', nav_abt:'About', nav_gal:'Destinations', nav_cnt:'Contact',
+    hero_kicker:'Bali Private Driver Service',
+    hero_h1:'EXPLORE BALI<br>WITH ELEGANCE',
+    hero_sub:'Your Personal Guide Beyond the Ordinary',
+    hero_p:'Free yourself from constraints and enjoy every moment. Book a private driver and explore Bali entirely on your own terms — in cool, safe comfort.',
+    hero_cta:'Book on WhatsApp',
+    v1:'Luxury', v2:'Authenticity', v3:'Serenity', v4:'Hospitality', v5:'Excellence',
+    intro_label:'Your Journey', intro_title:'YOUR JOURNEY,<br>OUR PRIVILEGE',
+    intro_body:'Navigating traffic in Ubud or finding your way to hidden beaches in Uluwatu can be overwhelming. Why waste your holiday time? With Yan S, you have the freedom to explore Bali at your own pace — private, comfortable, unforgettable.',
+    it1:'Private', it2:'Comfort', it3:'Culture', it4:'Safety',
+    svc_label:'What We Offer', svc_title:'OUR SERVICES',
+    s1h:'Airport Pickup', s1p:'Avoid the taxi crowds on arrival. Our driver waits with a personal name sign and a cold drink to take you directly to your villa or hotel.',
+    s2h:'Daily Tour "À la Carte"', s2p:'You choose the route, we do the driving. From Jatiluwih rice terraces to the temples of Amed, enjoy 8–10 hours of stress-free exploration.',
+    s3h:'Inter-City Transfer', s3p:'Move between Seminyak, Ubud, Canggu or Munduk with your luggage safely in a spacious air-conditioned SUV — Avanza, Innova or Hiace.',
+    s4h:'Photography Experience', s4p:'Our driver knows the best spots at Tanah Lot, the Gates of Heaven, Sidemen and Amed — including the ideal hour to avoid crowds.',
+    s5h:'Evening & Dinner Tours', s5p:'Watch the sunset at Uluwatu and enjoy a local dinner without worrying about the drive back to your accommodation.',
+    cmf_label:'On Board', cmf_title:'ISLAND LIFE<br>COMFORT',
+    cmf_intro:"Because of the heat and potentially long journeys, we've thought of everything for your comfort on board.",
+    cf1:'Ice-Cold AC', cf1t:"Always cool and fresh — a welcome escape from Bali's tropical heat.",
+    cf2:'Wi-Fi + Charger', cf2t:'Stay connected with Wi-Fi and chargers for all your devices.',
+    cf3:'Avanza · Innova · Hiace', cf3t:'Spacious family SUV or Van — chosen to match your group size and luggage.',
+    abt_label:'Who We Are', abt_title:'YOUR JOURNEY,<br>OUR PRIVILEGE',
+    abt_quote:'"More than just a driver — an ambassador of the island of Bali."',
+    av1:'Local Insight', av1t:'Every hidden corner of Bali.',
+    av2:'Total Safety', av2t:'Experienced driver, well-maintained vehicle.',
+    av3:'Full Flexibility', av3t:'Plans change? No problem at all.',
+    av4:'Clear Pricing', av4t:'No hidden fees, ever.',
+    dest_label:'Where We Take You', dest_title:"BALI'S FINEST DESTINATIONS",
+    d_gates:'Gates of Heaven', d_rice:'Rice Terraces', d_waterfall:'Waterfall', d_agung:'Mount Agung',
+    tst_label:'Reviews', tst_title:'WHAT TRAVELERS SAY',
+    t1:'"Yan was amazing — he knew every hidden waterfall and temple. We felt completely safe. Best decision of our Bali trip!"', t1l:'France · May 2025',
+    t2:'"Professional service at the highest level. Yan showed us places we never would have found alone. Highly recommend!"', t2l:'Russia · March 2025',
+    t3:'"Picked us up right on time with a cold drink. Tanah Lot at sunset was absolutely magical."', t3l:'Australia · Jan 2025',
+    t4:'"Driver Yan was very professional and knew all the most beautiful photography spots. Got the Bali photos of our dreams!"', t4l:'China · Feb 2025',
+    cta_label:'Reserve Your Journey', cta_title:'READY TO EXPLORE BALI?',
+    cta_p:"Contact us now for your reservation. We're ready to help you plan the Bali journey of your dreams.",
+    cta_btn:'WhatsApp Reservation',
+  },
+  id:{
+    nav_svc:'Layanan', nav_abt:'Tentang', nav_gal:'Destinasi', nav_cnt:'Kontak',
+    hero_kicker:'Layanan Supir Pribadi Bali',
+    hero_h1:'JELAJAHI BALI<br>DENGAN ELEGAN',
+    hero_sub:'Pemandu Pribadi Anda di Luar Jalur Biasa',
+    hero_p:'Bebaskan diri dari hambatan, nikmati setiap momen. Pesan supir pribadi dan jelajahi Bali sesuai keinginan Anda — nyaman dan aman.',
+    hero_cta:'Pesan via WhatsApp',
+    v1:'Kemewahan', v2:'Keaslian', v3:'Ketenangan', v4:'Keramahan', v5:'Keunggulan',
+    intro_label:'Perjalanan Anda', intro_title:'PERJALANAN ANDA,<br>KEBANGGAAN KAMI',
+    intro_body:'Menavigasi kemacetan di Ubud atau mencari pantai tersembunyi di Uluwatu bisa sangat rumit. Mengapa membuang waktu liburan? Bersama Yan S, Anda bebas menjelajahi Bali sesuai keinginan — pribadi, nyaman, tak terlupakan.',
+    it1:'Pribadi', it2:'Kenyamanan', it3:'Budaya', it4:'Keamanan',
+    svc_label:'Yang Kami Tawarkan', svc_title:'LAYANAN KAMI',
+    s1h:'Penjemputan Bandara', s1p:'Hindari kerumunan taksi saat tiba. Supir kami menunggu dengan papan nama pribadi dan minuman dingin untuk mengantar Anda ke vila atau hotel.',
+    s2h:'Tur Harian "À la Carte"', s2p:'Anda tentukan rutenya, kami yang mengemudi. Dari sawah terasering Jatiluwih hingga pura di Amed, nikmati 8–10 jam eksplorasi tanpa stres.',
+    s3h:'Transfer Antar-Kota', s3p:'Berpindah antara Seminyak, Ubud, Canggu, atau Munduk dengan aman dalam SUV luas ber-AC — Avanza, Innova, atau Hiace.',
+    s4h:'Pengalaman Fotografi', s4p:'Supir kami mengetahui spot terbaik di Tanah Lot, Gerbang Surga, Sidemen dan Amed — termasuk waktu terbaik untuk menghindari keramaian.',
+    s5h:'Wisata Sore & Makan Malam', s5p:'Saksikan matahari terbenam di Uluwatu dan nikmati makan malam lokal tanpa khawatir perjalanan pulang.',
+    cmf_label:'Di Dalam Kendaraan', cmf_title:'KENYAMANAN<br>"ISLAND LIFE"',
+    cmf_intro:'Karena cuaca panas dan perjalanan yang mungkin panjang, kami memikirkan segalanya untuk kenyamanan Anda.',
+    cf1:'AC yang Dingin', cf1t:'Kendaraan kami selalu segar dan nyaman dari terik matahari Bali.',
+    cf2:'Wi-Fi + Charger', cf2t:'Tetap terhubung dengan Wi-Fi on board dan charger untuk semua perangkat Anda.',
+    cf3:'Avanza · Innova · Hiace', cf3t:'SUV atau Van keluarga yang luas — dipilih sesuai ukuran grup.',
+    abt_label:'Siapa Kami', abt_title:'PERJALANAN ANDA,<br>KEBANGGAAN KAMI',
+    abt_quote:'"Lebih dari sekadar supir — seorang duta pulau Bali."',
+    av1:'Wawasan Lokal', av1t:'Setiap sudut Bali yang tersembunyi.',
+    av2:'Keamanan Total', av2t:'Pengemudi berpengalaman, kendaraan terawat.',
+    av3:'Fleksibilitas Penuh', av3t:'Rencana berubah? Tidak masalah.',
+    av4:'Harga Transparan', av4t:'Jelas, tanpa biaya tersembunyi.',
+    dest_label:'Ke Mana Kami Membawa Anda', dest_title:'DESTINASI TERBAIK BALI',
+    d_gates:'Gerbang Surga', d_rice:'Sawah Terasering', d_waterfall:'Air Terjun', d_agung:'Gunung Agung',
+    tst_label:'Ulasan', tst_title:'APA KATA WISATAWAN',
+    t1:'"Yan luar biasa — tahu setiap air terjun dan pura tersembunyi. Kami merasa sangat aman. Keputusan terbaik dalam perjalanan Bali kami!"', t1l:'Prancis · Mei 2025',
+    t2:'"Layanan profesional di level tertinggi. Yan menunjukkan tempat yang tidak akan kami temukan sendiri. Sangat direkomendasikan!"', t2l:'Rusia · Maret 2025',
+    t3:'"Menjemput kami tepat waktu dengan minuman dingin. Tanah Lot saat matahari terbenam sungguh ajaib."', t3l:'Australia · Jan 2025',
+    t4:'"Pengemudi Yan sangat profesional dan mengetahui semua spot foto terbaik. Foto Bali impian tercapai!"', t4l:'Tiongkok · Feb 2025',
+    cta_label:'Pesan Perjalanan Anda', cta_title:'SIAP MENJELAJAHI BALI?',
+    cta_p:'Hubungi kami sekarang untuk reservasi. Kami siap membantu Anda merencanakan perjalanan impian di Bali.',
+    cta_btn:'Reservasi via WhatsApp',
+  },
+  ru:{
+    nav_svc:'Услуги', nav_abt:'О нас', nav_gal:'Направления', nav_cnt:'Контакт',
+    hero_kicker:'Частный водитель на Бали',
+    hero_h1:'ОТКРОЙТЕ БАЛИ<br>С ЭЛЕГАНТНОСТЬЮ',
+    hero_sub:'Ваш личный гид за пределами обычных маршрутов',
+    hero_p:'Освободитесь от ограничений и наслаждайтесь каждым моментом. Закажите личного водителя и исследуйте Бали в своём темпе — комфортно и безопасно.',
+    hero_cta:'Написать в WhatsApp',
+    v1:'Роскошь', v2:'Аутентичность', v3:'Безмятежность', v4:'Гостеприимство', v5:'Превосходство',
+    intro_label:'Ваше путешествие', intro_title:'ВАШЕ ПУТЕШЕСТВИЕ —<br>НАША ПРИВИЛЕГИЯ',
+    intro_body:'Ориентироваться в пробках Убуда или искать скрытые пляжи Улувату — настоящий вызов. Зачем тратить отпускное время? С Yan S вы свободны исследовать Бали в своём темпе — приватно, комфортно, незабываемо.',
+    it1:'Приватно', it2:'Комфорт', it3:'Культура', it4:'Безопасность',
+    svc_label:'Что мы предлагаем', svc_title:'НАШИ УСЛУГИ',
+    s1h:'Трансфер из аэропорта', s1p:'Избегайте толпы такси. Водитель встретит с именной табличкой и холодным напитком, доставит прямо на виллу или в отель.',
+    s2h:'Дневной тур "À la Carte"', s2p:'Вы выбираете маршрут — мы ведём. От рисовых террас Джатилуви до храмов Амеда: 8–10 часов без стресса.',
+    s3h:'Межгородские трансферы', s3p:'Перемещение между Семиньяком, Убудом, Чангу или Мундуком с багажом в просторном кондиционированном SUV — Avanza, Innova или Hiace.',
+    s4h:'Фотографический тур', s4p:'Водитель знает лучшие точки съёмки в Тана Лот, Воротах Небес, Сидемене и Амеде — и идеальное время без толп.',
+    s5h:'Вечерние туры и ужины', s5p:'Закат в Улувату и ужин в местном ресторане — без беспокойства о возвращении в отель.',
+    cmf_label:'На борту', cmf_title:'КОМФОРТ<br>"ISLAND LIFE"',
+    cmf_intro:'Учитывая жару и долгие поездки, мы позаботились обо всём для вашего удобства на борту.',
+    cf1:'Кондиционер', cf1t:'Наши автомобили всегда прохладны — спасение от тропической жары Бали.',
+    cf2:'Wi-Fi + Зарядка', cf2t:'Оставайтесь на связи с Wi-Fi и зарядкой для всех устройств.',
+    cf3:'Avanza · Innova · Hiace', cf3t:'Просторный семейный SUV или Ван — подобран под размер группы и количество багажа.',
+    abt_label:'Кто мы', abt_title:'ВАШЕ ПУТЕШЕСТВИЕ —<br>НАША ПРИВИЛЕГИЯ',
+    abt_quote:'"Больше чем водитель — посол острова Бали."',
+    av1:'Знание местности', av1t:'Каждый скрытый уголок Бали.',
+    av2:'Полная безопасность', av2t:'Опытный водитель, ухоженный автомобиль.',
+    av3:'Гибкость', av3t:'Планы изменились? Нет проблем.',
+    av4:'Прозрачные цены', av4t:'Чёткая стоимость, без скрытых платежей.',
+    dest_label:'Куда мы вас везём', dest_title:'ЛУЧШИЕ НАПРАВЛЕНИЯ БАЛИ',
+    d_gates:'Врата Небес', d_rice:'Рисовые террасы', d_waterfall:'Водопад', d_agung:'Гора Агунг',
+    tst_label:'Отзывы', tst_title:'ЧТО ГОВОРЯТ ПУТЕШЕСТВЕННИКИ',
+    t1:'"Ян был потрясающим — знал каждый скрытый водопад и храм. Мы чувствовали себя в полной безопасности. Лучшее решение поездки!"', t1l:'Франция · Май 2025',
+    t2:'"Профессиональный сервис на высшем уровне. Ян показал места, о которых мы даже не знали. Рекомендую всем!"', t2l:'Россия · Март 2025',
+    t3:'"Встретил нас вовремя с холодным напитком. Тана Лот на закате — абсолютно незабываемо."', t3l:'Австралия · Янв 2025',
+    t4:'"Водитель Ян профессионален и знает все красивейшие места для фото. Фотографии мечты!"', t4l:'Китай · Фев 2025',
+    cta_label:'Забронируйте путешествие', cta_title:'ГОТОВЫ ОТКРЫТЬ БАЛИ?',
+    cta_p:'Свяжитесь с нами для бронирования. Мы готовы помочь спланировать путешествие мечты на Бали.',
+    cta_btn:'Бронь в WhatsApp',
+  },
+  zh:{
+    nav_svc:'服务', nav_abt:'关于我们', nav_gal:'目的地', nav_cnt:'联系',
+    hero_kicker:'巴厘岛私人司机服务',
+    hero_h1:'优雅探索<br>巴厘岛',
+    hero_sub:'您在非凡旅途中的私人向导',
+    hero_p:'从束缚中解脱，享受每一刻。预订私人司机，按照自己的节奏探索巴厘岛 — 凉爽、安全、舒适。',
+    hero_cta:'WhatsApp 预订',
+    v1:'奢华', v2:'真实', v3:'宁静', v4:'好客', v5:'卓越',
+    intro_label:'您的旅程', intro_title:'您的旅程，<br>我们的荣幸',
+    intro_body:'在乌布穿越拥堵或寻找乌鲁瓦图隐秘海滩可能极为复杂。为什么要浪费假期时间？与Yan S一起，您可以自由地按照自己的节奏探索巴厘岛 — 私密、舒适、难忘。',
+    it1:'私密', it2:'舒适', it3:'文化', it4:'安全',
+    svc_label:'我们的服务', svc_title:'专属服务',
+    s1h:'机场接送', s1p:'抵达时避免出租车人群。我们的司机将举着专属接机牌和冰饮料，直接送您到别墅或酒店。',
+    s2h:'"À la Carte" 一日游', s2p:'您定路线，我们来驾驶。从贾蒂鲁维梯田到阿美德神庙，享受8-10小时无压力探索之旅。',
+    s3h:'城际转运', s3p:'在赛米亚克、乌布、水明漾或门都之间安全转移，行李置于宽敞空调SUV中 — Avanza、Innova或Hiace。',
+    s4h:'摄影体验', s4p:'我们的司机知道塔纳洛特、天堂之门、希德曼和阿美德的最佳拍摄地点和避开人群的最佳时机。',
+    s5h:'傍晚游览与晚餐', s5p:'在乌鲁瓦图欣赏日落，享用当地晚餐，无需担心返程。',
+    cmf_label:'车内体验', cmf_title:'"岛屿生活"<br>舒适享受',
+    cmf_intro:'考虑到炎热天气和可能漫长的旅程，我们为您的车内舒适周全考虑。',
+    cf1:'冷气空调', cf1t:'我们的车辆始终清凉舒适，让您从巴厘岛烈日中得到解脱。',
+    cf2:'Wi-Fi + 充电', cf2t:'车载Wi-Fi + 为所有设备充电 — 整个旅途保持联网。',
+    cf3:'Avanza · Innova · Hiace', cf3t:'宽敞家用SUV或面包车 — 根据团队规模和行李选配。',
+    abt_label:'关于我们', abt_title:'您的旅程，<br>我们的荣幸',
+    abt_quote:'"不仅仅是司机，更是巴厘岛的使者。"',
+    av1:'本地洞察', av1t:'了解巴厘岛每一个隐藏角落。',
+    av2:'全面安全', av2t:'经验丰富的司机，维护良好的车辆。',
+    av3:'完全灵活', av3t:'计划有变？没问题，随时适应。',
+    av4:'价格透明', av4t:'价格清晰，无隐藏费用。',
+    dest_label:'我们带您前往', dest_title:'巴厘岛最美目的地',
+    d_gates:'天堂之门', d_rice:'梯田', d_waterfall:'瀑布', d_agung:'阿贡山',
+    tst_label:'客人评价', tst_title:'旅行者怎么说',
+    t1:'"阿彦棒极了——知道每一个隐藏的瀑布和神庙。我们感到完全安全。最好的决定！"', t1l:'法国 · 2025年5月',
+    t2:'"最高水准的专业服务。阿彦展示了我们自己找不到的地方。强烈推荐！"', t2l:'俄罗斯 · 2025年3月',
+    t3:'"在机场准时接机，手里还拿着冷饮。塔纳洛特日落令人难忘。"', t3l:'澳大利亚 · 2025年1月',
+    t4:'"司机扬非常专业，知道所有最美的拍照地点。我们拍到了梦寐以求的照片！"', t4l:'中国 · 2025年2月',
+    cta_label:'预订您的旅程', cta_title:'准备好探索巴厘岛了吗？',
+    cta_p:'立即联系我们进行预订。我们随时准备帮您规划梦想中的巴厘岛之旅。',
+    cta_btn:'WhatsApp 预订',
+  }
+};
+
+function setLang(lang) {
+  const d = T[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  document.querySelectorAll('.lb').forEach(b => {
+    const m = {en:'EN', id:'ID', ru:'RU', zh:'中'};
+    b.classList.toggle('active', b.textContent.trim() === m[lang]);
+  });
+  document.documentElement.lang = lang;
+}
+
+function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
+
+window.addEventListener('load', () => document.getElementById('heroBg').classList.add('loaded'));
+
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); }
+}), { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
